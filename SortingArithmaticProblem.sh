@@ -8,4 +8,5 @@ read -p "Enter The Third Number: " c
 #Variable Declaration
 oprationOne=$((a+b*c))
 oprationTwo=$((a*b+c))
+oprationThree=$((c+a/b))
 
