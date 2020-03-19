@@ -16,7 +16,6 @@ function calculate()
 {
 	dict[oprationOne]=$((a + b * c))
 	dict[oprationTwo]=$((a * b + c))
-	#Used scale=2 for display .2 floating value
 	dict[oprationThree]=$((c + a / b))
 	dict[oprationFour]=$((a % b + c))
 }
@@ -45,4 +44,4 @@ print
 dictionaryToArray
 
 #All Dictionary And Array Element
-echo "Elements in Array " ${arr[@]}
+echo "Elements In Array: " ${arr[@]}
