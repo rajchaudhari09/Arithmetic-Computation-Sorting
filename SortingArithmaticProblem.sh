@@ -9,4 +9,4 @@ read -p "Enter The Third Number: " c
 oprationOne=$((a+b*c))
 oprationTwo=$((a*b+c))
 oprationThree=$((c+a/b))
-
+oprationFour=$((a%b+c))
