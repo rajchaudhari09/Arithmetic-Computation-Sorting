@@ -1,5 +1,5 @@
 #!/bin/bash -x
-#Arithmetic Computation & Sorting
+#Arithmetic Computation Sorting
 #This problem computes different arithmetic expressions and Sorts the results
 
 
@@ -21,13 +21,16 @@ function calculate()
 	dict[oprationFour]=$((a % b + c))
 }
 #Store The Dictionary To Array
-function  dictionaryToArray()
+function dictionaryToArray()
 {
-	for((index=0;index<4;index++))
+	for ((index=0;index<4;index++))
 	do
-		arr[index]=${dict[opration$((index+1))]}
+		arr[((index++))]=${dict[oprationOne]}
+		arr[((index++))]=${dict[oprationTwo]}
+		arr[((index++))]=${dict[oprationThree]}
+		arr[((index++))]=${dict[oprationFour]}
 	done
-}
+}	
 #Print The Opration And Result
 function print()
 {
