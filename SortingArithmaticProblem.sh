@@ -55,16 +55,28 @@ length=${#arr[@]}
 			fi
 		done
 	done
+	echo "Element in Array After Descending Sorting " ${arr[@]}
+	
+	for((sortingNumberOne=0;sortingNumberOne<$length;sortingNumberOne++))
+	do
+		for((sortingNumberTwo=sortingNumberOne+1;sortingNumberTwo<=$length;sortingNumberTwo++))
+		do
+			if [[ ${arr[sortingNumberOne]%.*} -gt ${arr[sortingNumberTwo]%.*} ]]
+			then
+				temp=${arr[$sortingNumberOne]}
+				arr[sortingNumberOne]=${arr[$sortingNumberTwo]}
+				arr[sortingNumberTwo]=$temp
+			fi
+		done
+	done
+	echo "Element in Array After Ascending Sorting " ${arr[@]}
 
 }
 #Calling All Function
 calculate
-#dictionaryToArray
 print
 dictionaryToArray
 #All Dictionary And Array Element
 echo "Elements In Array Before Sorting: " ${arr[@]}
 #Calling Sorting Function
-sorting
-echo "Element in Array After Descending Sorting " ${arr[@]}
-
+sorting 
