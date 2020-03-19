@@ -45,3 +45,6 @@ dictionaryToArray
 
 #All Dictionary And Array Element
 echo "Elements In Array: " ${arr[@]}
+
+
+
