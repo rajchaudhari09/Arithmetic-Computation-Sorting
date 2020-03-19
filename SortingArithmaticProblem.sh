@@ -22,7 +22,7 @@ function calculate()
 #Store The Dictionary To Array
 function dictionaryToArray()
 {
-	for ((index=0;index<4;index++))
+	for ((index=0;index<=4;index++))
 	do
 		arr[((index++))]=${dict[oprationOne]}
 		arr[((index++))]=${dict[oprationTwo]}
@@ -30,7 +30,7 @@ function dictionaryToArray()
 		arr[((index++))]=${dict[oprationFour]}
 	done
 }	
-#Print The Opration And Result
+Print The Opration And Result
 function print()
 {
 	echo "$a + $b * $c = ${dict[oprationOne]}"
@@ -38,13 +38,33 @@ function print()
 	echo "$c + $a / $b = ${dict[oprationThree]}"
 	echo "$a % $b + $c = ${dict[oprationFour]}"
 }
+Sorting the value for number
+function sorting()
+{
+length=${#arr[@]}
+
+	for((sortingNumberOne=1;sortingNumberOne<$length;sortingNumberOne++))
+	do
+		for((sortingNumberTwo=sortingNumberOne+1;sortingNumberTwo<=$length;sortingNumberTwo++))
+		do
+			if [[ ${arr[sortingNumberOne]%.*} -lt ${arr[sortingNumberTwo]%.*} ]]
+			then
+				temp=${arr[$sortingNumberOne]}
+				arr[sortingNumberOne]=${arr[$sortingNumberTwo]}
+				arr[sortingNumberTwo]=$temp
+			fi
+		done
+	done
+
+}
 #Calling All Function
 calculate
+#dictionaryToArray
 print
 dictionaryToArray
-
 #All Dictionary And Array Element
-echo "Elements In Array: " ${arr[@]}
-
-
+echo "Elements In Array Before Sorting: " ${arr[@]}
+#Calling Sorting Function
+sorting
+echo "Element in Array After Descending Sorting " ${arr[@]}
 
