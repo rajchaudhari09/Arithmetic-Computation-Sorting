@@ -1,21 +1,45 @@
 #!/bin/bash -x
 #Arithmetic Computation & Sorting
 #This problem computes different arithmetic expressions and Sorts the results
-#Take The three inputs a, b & c
+
+
+
+#Take The Three Inputs a, b & c
 read -p "Enter The First Number: " a
 read -p "Enter The Second Number: " b
 read -p "Enter The Third Number: " c
-#Declaring Dictionary
+#Declaring Dictionary And Array
 declare -A dict
-#Variable Declaration for Calculate the Results Of Arithmetic Operation
-dict[oprationOne]=$((a+b*c))
-dict[oprationTwo]=$((a*b+c))
-# Used scale=2 for display .2 floating value
-dict[oprationThree]=$(echo "scale=2; $c + $a / $b" | bc )
-dict[oprationFour]=$((a%b+c))
-#Print the Opration And Result
-echo "$a + $b * $c = ${dict[oprationOne]}"
-echo "$a * $b + $c = ${dict[oprationTwo]}"
-echo "$c + $a / $b = ${dict[oprationThree]}"
-echo "$a % $b + $c = ${dict[oprationFour]}"
+declare -a 	arr
+#Calculate the Results Of Arithmetic Operation
+function calculate()
+{
+	dict[oprationOne]=$((a + b * c))
+	dict[oprationTwo]=$((a * b + c))
+	#Used scale=2 for display .2 floating value
+	dict[oprationThree]=$((c + a / b))
+	dict[oprationFour]=$((a % b + c))
+}
+#Store The Dictionary To Array
+function  dictionaryToArray()
+{
+	for((index=0;index<4;index++))
+	do
+		arr[index]=${dict[opration$((index+1))]}
+	done
+}
+#Print The Opration And Result
+function print()
+{
+	echo "$a + $b * $c = ${dict[oprationOne]}"
+	echo "$a * $b + $c = ${dict[oprationTwo]}"
+	echo "$c + $a / $b = ${dict[oprationThree]}"
+	echo "$a % $b + $c = ${dict[oprationFour]}"
+}
+#Calling All Function
+calculate
+print
+dictionaryToArray
 
+#All Dictionary And Array Element
+echo "Elements in Array " ${arr[@]}
