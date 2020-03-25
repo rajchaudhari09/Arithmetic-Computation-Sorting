@@ -97,4 +97,6 @@ do
 done
 	echo "DiesCounterFirst No Is:$diesCountFirst First Player Position is:$pointFirst"
 	echo "DiesCounterSecond No Is:$diesCountSecond Second Player Position is:$pointSecond"
-#done
+
+
+
